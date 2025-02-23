@@ -64,7 +64,7 @@ export default function Home() {
   return (
     <div id="home" className="min-h-screen bg-gradient-to-br from-black via-gray-900 to-green-900 text-white flex flex-col items-center justify-center font-sans">
       {/* Navigation Bar */}
-      <nav className="z-20 sticky top-6 mt-10 flex items-center gap-6 px-6 py-3 bg-black/30 backdrop-blur-md rounded-full shadow-lg border border-gray-700">
+      <nav className="z-20 sticky top-6 mt-10 flex items-center gap-6 px-6 py-3 bg-black/30 rounded-full shadow-lg border border-gray-700">
         {["Home", "Work", "Contact"].map((tab) => (
           <button
             key={tab}
@@ -75,7 +75,7 @@ export default function Home() {
             className={`px-6 py-2 rounded-full transition text-lg font-medium ${
               activeTab === tab
                 ? "bg-green-500 text-black font-bold shadow-lg"
-                : "text-gray-300 hover:text-green-400"
+                : "text-gray-300 text-lg font-2000 hover:text-green-400"
             }`}
           >
             {tab}
