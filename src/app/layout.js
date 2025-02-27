@@ -1,6 +1,17 @@
-import { Geist, Geist_Mono } from "next/font/google";
+import { Geist, Geist_Mono, Chakra_Petch, Black_Ops_One } from "next/font/google";
 import "./globals.css";
-import Navbar from "./components/Navbar";
+
+const chakraPetch = Chakra_Petch({
+  subsets: ["latin"],
+  weight: ["400", "700"], // Choose available weights
+  variable: "--font-chakra-petch", // Define a CSS variable
+});
+
+const blackOpsOne = Black_Ops_One({
+  subsets: ["latin"],
+  weight: ["400"], // Only available weight for Black Ops One
+  variable: "--font-black-ops-one",
+});
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -21,10 +32,9 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} ${blackOpsOne.variable} ${chakraPetch.variable} antialiased`}
       >
-      {/* <Navbar /> */}
-        {children}
+          {children}
       </body>
     </html>
   );
