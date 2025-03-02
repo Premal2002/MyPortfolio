@@ -64,7 +64,7 @@ export default function Hero() {
               colors={["#40ffaa", "#06D001", "#40ffaa", "#4079ff", "#40ffaa"]}
               animationSpeed={5}
               showBorder={false}
-              className="custom-class"
+              className="custom-class select-none"
             >
               A Software Developer
             </GradientText>
@@ -137,7 +137,7 @@ export default function Hero() {
             <span className="text-gray-100">Open To Work</span>,
             <span className="text-gray-1000">Immediate Joiner</span>,
           ]}
-          velocity={100}
+          velocity={50}
           className="custom-scroll-text text-2xl tracking-normal font-sans "
           // scrollerClassName="gap-y-1 py-1"
           numCopies={100}

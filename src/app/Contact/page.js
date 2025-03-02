@@ -66,7 +66,7 @@ export default function Contact() {
     <section id="contact" className="flex flex-col md:flex-row justify-center gap-12 px-6 py-16 text-white mt-18">
       {/* Left Side */}
       <div className="max-w-lg text-center md:text-left">
-        <h2 className="text-6xl font-bold text-customGreen mb-4">
+        <h2 className="text-6xl font-bold text-customGreen text-left md:w-fit mb-4">
         <TrueFocus
           sentence="Get In Touch"
           manualMode={false}
