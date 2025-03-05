@@ -8,24 +8,39 @@ import "swiper/css/effect-coverflow";
 import { FaGithub, FaExternalLinkAlt } from "react-icons/fa";
 import TrueFocus from "../ReactBits/TrueFocus";
 import { projects } from "../data/projects";
-
+import { motion, useInView } from "framer-motion";
+import { useRef } from "react";
 
 export default function ProjectSlider() {
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: false, margin: "-100px" });
+
   return (
-    <div id="work" className="pt-10 mt-10  w-full max-w-6xl text-center">
-      <h2 className="text-6xl font-bold text-customGreen mb-8">
-        <TrueFocus
-          sentence="My Projects"
-          manualMode={false}
-          blurAmount={2.5}
-          borderColor="cyan"
-          animationDuration={2}
-          pauseBetweenAnimations={1}
-        />
-      </h2>
+    <motion.div
+      ref={ref}
+      id="work"
+      className="pt-20 w-full max-w-6xl text-center"
+      initial={{ opacity: 0, y: 30 }}
+      animate={isInView ? { opacity: 1, y: 0 } : {}}
+      transition={{ duration: 1, ease: "easeOut" }}
+    >
+      {/* Heading */}
+      <motion.h2
+        className="text-6xl font-bold text-customGreen mb-8"
+        initial={{ opacity: 0, y: -30 }}
+        animate={isInView ? { opacity: 1, y: 0 } : {}}
+        transition={{ duration: 1, delay: 0.3, ease: "easeOut" }}
+      >
+        My Projects
+      </motion.h2>
 
       {/* Projects Container */}
-      <div className="w-full mx-auto py-8 px-3 sm:px-6 flex justify-center">
+      <motion.div
+        className="w-full mx-auto py-8 px-3 sm:px-6 flex justify-center"
+        initial={{ opacity: 0, scale: 0.9 }}
+        animate={isInView ? { opacity: 1, scale: 1 } : {}}
+        transition={{ duration: 1, delay: 0.5, ease: "easeOut" }}
+      >
         <div className="w-full max-w-xs sm:max-w-md md:max-w-2xl lg:max-w-6xl">
           <Swiper
             effect={"coverflow"}
@@ -56,18 +71,18 @@ export default function ProjectSlider() {
           >
             {projects.map((project, index) => (
               <SwiperSlide key={index}>
-                <div
+                <motion.div
                   className="relative w-full rounded-2xl overflow-hidden shadow-md group transition-all duration-1000"
-                  style={{
-                    height: "270px", // Smaller height for small devices
-                    padding: "6px", // Adjusted padding
-                  }}
+                  style={{ height: "270px", padding: "6px" }}
                   onMouseEnter={(e) =>
                     e.target.closest(".swiper").swiper.autoplay.stop()
                   }
                   onMouseLeave={(e) =>
                     e.target.closest(".swiper").swiper.autoplay.start()
                   }
+                  initial={{ opacity: 0, scale: 0.8 }}
+                  animate={isInView ? { opacity: 1, scale: 1 } : {}}
+                  transition={{ duration: 0.8, delay: index * 0.2 }}
                 >
                   <img
                     src={project.image}
@@ -117,12 +132,12 @@ export default function ProjectSlider() {
                       </a>
                     </div>
                   </div>
-                </div>
+                </motion.div>
               </SwiperSlide>
             ))}
           </Swiper>
         </div>
-      </div>
-    </div>
+      </motion.div>
+    </motion.div>
   );
 }
