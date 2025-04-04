@@ -137,8 +137,8 @@ export default function Hero() {
       >
         <ScrollVelocity
           texts={[
-            <span className="text-gray-100">Open To Work</span>,
-            <span className="text-gray-1000">Immediate Joiner</span>,
+            <span className="text-gray-100">Always Learning</span>,
+            <span className="text-gray-1000">Passionate Developer</span>,
           ]}
           velocity={50}
           className="custom-scroll-text text-2xl tracking-normal font-sans"
